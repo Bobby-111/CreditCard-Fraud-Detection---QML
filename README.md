@@ -160,9 +160,26 @@ jupyter notebook QML_for_Fraud_Detection.ipynb
 
 ## 📈 Performance Results & Interpretation
 
-The Variational Quantum Classifier achieves rapid convergence when optimized classically with `ADAM` (Learning Rate = `0.1` over `50` epochs).
+The Variational Quantum Classifier (VQC) framework was validated in two distinct phases, showing rapid convergence and high learning capacity when optimized classically using `ADAM` (Learning Rate = `0.1`).
 
-### Classification Report (Test Set Evaluation)
+### Phase 1: Synthetic Baseline (Proof-of-Concept)
+Before scaling to high-dimensional datasets, the core VQC architecture was validated on a 2-qubit system using a dynamically generated synthetic dataset.
+
+```text
+              precision    recall  f1-score   support
+
+           0       0.93      1.00      0.96        13
+           1       1.00      0.86      0.92         7
+
+    accuracy                           0.95        20
+   macro avg       0.96      0.93      0.94        20
+weighted avg       0.95      0.95      0.95        20
+```
+* **Analysis**: Achieved an outstanding **$95\%$ accuracy** on the test set, proving the baseline quantum feature map (`ZZFeatureMap`) and parameter-shift gradients function perfectly on a simple feature landscape.
+
+### Phase 2: Kaggle Credit Card Fraud Dataset (Real-World Evaluation)
+Once baseline validation succeeded, the system was scaled to a 5-qubit architecture mapping the top 5 absolute correlation features of the Kaggle dataset.
+
 ```text
               precision    recall  f1-score   support
 
@@ -174,7 +191,7 @@ The Variational Quantum Classifier achieves rapid convergence when optimized cla
 weighted avg       0.89      0.86      0.86       197
 ```
 
-### Key Metrics & Strengths
+### Key Metrics & Strengths (Phase 2)
 * **Perfect Precision for Fraud ($100\%$)**: Every single transaction flagged as fraud by the quantum classifier is indeed fraudulent. This completely eliminates **False Positives (false alarms)**, ensuring zero alert fatigue for classical security operations teams.
 * **Flawless Recall for Non-Fraud ($100\%$)**: Not a single legitimate customer transaction is blocked or misclassified as fraudulent, maintaining an excellent user experience.
 * **Balanced Quantum Decision Boundary**: With an overall accuracy of **$86\%$** and a robust macro F1-score of **$0.86$**, the quantum variational classifier demonstrates powerful classification boundaries, with a minor trade-off in fraud recall ($72\%$), which is highly standard in real-world risk classification models.
