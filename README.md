@@ -38,7 +38,7 @@ flowchart TD
     subgraph Classical Preprocessing
         A[Raw Kaggle Credit Card Dataset] --> B[Imbalance Handling: Under-Sampling]
         B --> C[Feature Selection: Top 5 absolute correlations]
-        C --> D[MinMax Scaling to [0, π] for angle encoding]
+        C --> D["MinMax Scaling to [0, π] for angle encoding"]
     end
     
     subgraph Quantum Circuit Simulator
