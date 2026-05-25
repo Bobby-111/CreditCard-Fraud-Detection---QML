@@ -116,7 +116,7 @@ Because of simulator limits, it is important to select a high-value, low-dimensi
 | **4** | **V10** | **-0.216** | **Yes** |
 | **5** | **V16** | **-0.196** | **Yes** |
 
-### Downsampling strategy
+### Downsampling Strategy
 To handle the extreme $99.8\%$ class imbalance and limit training duration on classical simulators, we constructed a balanced sub-dataset:
 1. Retained all $492$ fraudulent samples.
 2. Randomly sampled $492$ non-fraudulent samples.
